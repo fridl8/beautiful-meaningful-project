@@ -20,4 +20,9 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def authenticate(plain_text_password, email_input)
+    user_logging_in = User.find_by(email: email_input)
+    BCrypt::Password.new(user_logging_in.password_hash) == plain_text_password && self.email == email_input
+  end
+
 end

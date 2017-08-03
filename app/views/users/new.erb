@@ -1,1 +1,13 @@
+<h2>User Registration</h2>
 
+<form action="/users" method="post">
+  <label>Username: </label>
+  <input type="text" name="user[username]" placeholder="Username" autofocus><br>
+  <label>Email: </label>
+  <input type="email" name="user[email]" placeholder="example@email.com"><br>
+  <label>Password: </label>
+  <input type="password" name="user[password]" placeholder="Password"><br>
+  <label>Confirm Password: </label>
+  <input type="password" name="confirm_password" placeholder="Confirm Password"><br>
+  <input type="submit" value="Register">
+</form>
