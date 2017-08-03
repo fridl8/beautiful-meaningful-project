@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # PostgreSQL driver
 gem 'pg'
 gem 'dotenv'
+gem 'json'
+gem 'oauth2'
 
 # Sinatra driver
 gem 'sinatra', '~> 1.0'
