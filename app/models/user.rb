@@ -1,4 +1,11 @@
+require 'bcrypt'
+
 class User < ActiveRecord::Base
+  include BCrypt
+
+  has_many :group_members
+  has_many :groups, through: :group_members
+  # has_many :created_groups, through: :groups, foreign_key: :creator_id
 
   validates_presence_of :username, :email, :password
   validates_uniqueness_of :username, :email
