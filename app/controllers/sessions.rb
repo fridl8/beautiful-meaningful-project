@@ -13,3 +13,37 @@ get '/oauth2callback' do
   @email = access_token.get('https://www.googleapis.com/userinfo/email?al=json').parsed
   erb :'/sessions/success'
 end
+
+get '/sessions/new' do
+  erb :'/sessions/new'
+end
+
+post '/sessions' do
+  @user = User.find_by(email: params[:user][:email])
+  if request.xhr?
+    if !logged_in?
+      if @user && @user.authenticate(params[:user][:password], params[:user][:email])
+        session[:user_id] = @user.id
+        redirect '/'
+      else
+        @errors = ["Password or email is incorrect"]
+        erb :'_errors', layout: false
+      end
+    else
+      @errors = ["You need to be logged out to do that"]
+      erb :'_errors', layout: false
+    end
+  else
+    if !logged_in?
+      if @user && @user.authenticate(params[:user][:password], params[:user][:email])
+        session[:user_id] = @user.id
+        erb :'/users/show'
+      else
+        @errors = ["Password or email is incorrect"]
+        erb :'/sessions/new'
+      end
+    else
+      @errors = ["You need to be logged out to do that"]
+      erb :index
+  end
+end
