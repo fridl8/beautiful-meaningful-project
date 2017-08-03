@@ -2,13 +2,14 @@ source 'https://rubygems.org'
 
 # PostgreSQL driver
 gem 'pg'
-gem 'dotenv'
-gem 'json'
-gem 'oauth2'
 
 # Sinatra driver
 gem 'sinatra', '~> 1.0'
 gem 'sinatra-contrib'
+gem 'dotenv'
+gem 'json'
+gem 'oauth2'
+gem 'bcrypt'
 
 gem 'activesupport', '~>5.1.2'
 gem 'activerecord', '~>5.1.2'
