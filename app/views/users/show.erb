@@ -9,9 +9,13 @@
   <input type="submit" value="Go to Calendar">
 </form>
 
-<p>Or use a refresh token</p>
+<p>Or use the refresh token if you have authorized this site within the last hour.</p>
+
+<!-- <form action="/users/ @user.id /calendar" method="get">
+  <input type="text" name="refresh_token" placeholder="Text...">
+  <input type="submit" value="Go to Calendar">
+</form> -->
 
 <form action="/users/<%= @user.id %>/calendar" method="get">
-  <input type="text" name="refresh_token" placeholder="Text...">
   <input type="submit" value="Go to Calendar">
 </form>
