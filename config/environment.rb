@@ -25,9 +25,6 @@ require 'json'
 require 'erb'
 # require 'pry-byebug'
 
-# API
-Dotenv.load
-
 # SCOPES = [
 #   'https://www.googleapis.com/auth/userinfo.email'
 # ].join(' ')
