@@ -1,30 +1,29 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+### Build Something Beautiful & Meaningful
 
-### Purpose
-The Sinatra Skeleton:
+#### Learning Competencies
+  * Building a web application from scratch
+  * Managing the development process
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+#### Summary
+You should work by yourself.
 
-### Quickstart
+You've learned a lot in phase 2: Sinatra, Active Record, JavaScript, Agile, and much more. Each of these tools is useful in its own right, but together, they give you something much more powerful — the ability to build a web application from nothing.
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+For this challenge, your assignment is to build something. It can be as practical or trivial as you would want, as long as it is a 100% functional, full-stack web application.
 
-As needed, create models & migrations with the `rake` tasks:
+You can build anything you want, provided that it meets the following requirements:
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+- It has a database
+- Construct a controller that has at least 1 RESTful resource
+- It uses an API (what does this mean?! explore!)
+- It is styled
+- It utilizes JavaScript
+- It is deployed to Heroku
 
-### Contributing
+Once you've come up with an idea, get one of your teachers to approve it.
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
-
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
-
-Be prepared to give and receive specific, actionable, and kind feedback!
+### Resources
+- [List of Public API's](https://www.publicapis.com/)
+- [Mashape - List of API's](https://www.mashape.com/)
+- [Programmable Web](http://www.programmableweb.com/)
+- [Postman - REST Client](https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
