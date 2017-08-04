@@ -2,11 +2,12 @@
 
 <h4>Calendar Events</h4>
 <% if @cal.events %>
-  <ul>
+<% p @cal.events.second %>
+  <ol>
     <% @cal.events.each do |event| %>
     <li><%= event.title %></li>
     <% end %>
-  </ul>
+  </ol>
 <% end %>
 
 <h4>Add Event</h4>
@@ -17,6 +18,20 @@
   <label>Start Time: </label>
   <input type="text" name="event[start_time]" placeholder="Start Time"><br>
   <label>End Time: </label>
-  <input type="text" name="event[end_time]" placeholder="End Time"><br>
+  <input type="text" name="event[end_time]" placeholder="End Time"><br><br>
   <input type="submit" value="Create Event">
+</form>
+
+<h4>Delete Event</h4>
+<form action="/users/<%= @user.id %>/calendar/events/delete/1" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete First">
+</form><br>
+<form action="/users/<%= @user.id %>/calendar/events/delete/2" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Second">
+</form><br>
+<form action="/users/<%= @user.id %>/calendar/events/delete/0" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Last">
 </form>
