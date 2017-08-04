@@ -1,2 +1,17 @@
 <h3>Hello, <%= @user.username %></h3>
 
+
+<a href="<%= @cal.authorize_url.to_s %>" target="_blank">Authorize Calendars</a>
+<p>Copy and paste the code from the above link into the form below to access Google Calendar.</p>
+
+<form action="/users/<%= @user.id %>/calendar" method="get">
+  <input type="text" name="auth_token" placeholder="Text...">
+  <input type="submit" value="Go to Calendar">
+</form>
+
+<p>Or use a refresh token</p>
+
+<form action="/users/<%= @user.id %>/calendar" method="get">
+  <input type="text" name="refresh_token" placeholder="Text...">
+  <input type="submit" value="Go to Calendar">
+</form>

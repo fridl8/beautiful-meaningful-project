@@ -11,6 +11,7 @@ require 'dotenv'
 require 'uri'
 require 'pathname'
 require 'bcrypt'
+require 'google_calendar'
 
 require 'pg'
 require 'active_record'
@@ -27,32 +28,32 @@ require 'erb'
 # API
 Dotenv.load
 
-SCOPES = [
-  'https://www.googleapis.com/auth/userinfo.email'
-].join(' ')
+# SCOPES = [
+#   'https://www.googleapis.com/auth/userinfo.email'
+# ].join(' ')
 
-unless G_API_CLIENT = ENV['G_API_CLIENT']
-  raise "You must specify the G_API_CLIENT env variable"
-end
+# unless G_API_CLIENT = ENV['GOOGLE_CLIENT_ID']
+#   raise "You must specify the G_API_CLIENT env variable"
+# end
 
-unless G_API_SECRET = ENV['G_API_SECRET']
-  raise "You must specify the G_API_SECRET env variable"
-end
+# unless G_API_SECRET = ENV['GOOGLE_CLIENT_SECRET']
+#   raise "You must specify the G_API_SECRET env variable"
+# end
 
-def client
-  client ||= OAuth2::Client.new(G_API_CLIENT, G_API_SECRET, {
-                :site => 'https://accounts.google.com',
-                :authorize_url => "/o/oauth2/auth",
-                :token_url => "/o/oauth2/token"
-              })
-end
+# def client
+#   client ||= OAuth2::Client.new(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, {
+#                 :site => 'https://accounts.google.com',
+#                 :authorize_url => "/o/oauth2/auth",
+#                 :token_url => "/o/oauth2/token"
+#               })
+# end
 
-def redirect_uri
-  uri = URI.parse(request.url)
-  uri.path = '/oauth2callback'
-  uri.query = nil
-  uri.to_s
-end
+# def redirect_uri
+#   uri = URI.parse(request.url)
+#   uri.path = '/oauth2callback'
+#   uri.query = nil
+#   uri.to_s
+# end
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

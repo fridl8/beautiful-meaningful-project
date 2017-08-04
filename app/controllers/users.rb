@@ -23,6 +23,11 @@ end
 
 get '/users/:id' do
   @user = User.find_by(id: params[:id])
+  @cal = Google::Calendar.new(:client_id     => ENV['GOOGLE_CLIENT_ID'],
+                           :client_secret => ENV['GOOGLE_CLIENT_SECRET'],
+                           :calendar      => ENV['GOOGLE_CAL_ID'],
+                           :redirect_url  => "urn:ietf:wg:oauth:2.0:oob" # this is what Google uses for 'applications'
+                           )
   if request.xhr?
     if logged_in?
       if @user

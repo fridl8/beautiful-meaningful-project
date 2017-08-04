@@ -21,6 +21,10 @@
   <nav>
     <a href="/users/new">Register</a>
     <a href="/sessions/new">Login</a>
+    <form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="logout">
+    </form>
   </nav>
   <%= yield %>
 </body>
