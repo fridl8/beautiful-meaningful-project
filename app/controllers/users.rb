@@ -6,13 +6,18 @@ post '/users' do
   @user = User.new(params[:user])
   if request.xhr?
     if @user.save
-      redirect '/'
+      redirect "/users/#{@user.id}"
     else
       @errors = @user.errors.full_messages
       erb :'_errors', layout: false
     end
   else
-    redirect '/'
+    if @user.save
+      redirect "/users/#{@user.id}"
+    else
+      @errors = @user.errors.full_messages
+      erb :'/users/new'
+    end
   end
 end
 
@@ -36,6 +41,21 @@ get '/users/:id' do
       erb :'_errors', layout: false
     end
   else
-    redirect '/'
+    if logged_in?
+      if @user
+        if @user.id == current_user.id
+          erb :'/users/show'
+        else
+          @errors = ["You can't do that"]
+          erb :index
+        end
+      else
+        @errors = ["User does not exist"]
+        erb :index
+      end
+    else
+      @errors = ["You need to be logged in"]
+      erb :'/users/new'
+    end
   end
 end

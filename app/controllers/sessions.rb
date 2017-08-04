@@ -45,5 +45,6 @@ post '/sessions' do
     else
       @errors = ["You need to be logged out to do that"]
       erb :index
+    end
   end
 end
