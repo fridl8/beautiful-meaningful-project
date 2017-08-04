@@ -1,6 +1,6 @@
 get '/users/:id/calendar' do
   @user = User.find_by(id: params[:id])
-  if @user.refresh.length != nil
+  if @user.refresh != nil
     @cal = Google::Calendar.new(:client_id     => ENV['GOOGLE_CLIENT_ID'],
                            :client_secret => ENV['GOOGLE_CLIENT_SECRET'],
                            :calendar      => ENV['GOOGLE_CAL_ID'],
