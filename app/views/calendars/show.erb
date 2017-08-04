@@ -1,0 +1,8 @@
+<h2>Calendar</h2>
+<% if refresh_token %>
+  <label>Refresh Token: </label><%= refresh_token %>
+<% end %>
+
+<% @cal.events.each do |event| %>
+  <p><%= event.title %></p>
+<% end %>

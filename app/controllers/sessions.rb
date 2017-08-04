@@ -1,17 +1,20 @@
-get '/auth' do
-  redirect client.auth_code.authorize_url(:redirect_uri => redirect_uri,:scope => SCOPES,:access_type => "offline")
-end
+# get '/auth' do
+#   redirect client.auth_code.authorize_url(:redirect_uri => redirect_uri,:scope => SCOPES,:access_type => "offline")
+# end
 
-get '/oauth2callback' do
-  access_token = client.auth_code.get_token(params[:code], :redirect_uri => redirect_uri)
-  session[:access_token] = access_token.token
-  @message = "Successfully authenticated with the server"
-  @access_token = session[:access_token]
+# get '/oauth2callback' do
+#   access_token = client.auth_code.get_token(params[:code], :redirect_uri => redirect_uri)
+#   session[:access_token] = access_token.token
+#   @message = "Successfully authenticated with the server"
+#   @access_token = session[:access_token]
 
-  # parsed is a handy method on an OAuth2::Response object that will
-  # intelligently try and parse the response.body
-  @email = access_token.get('https://www.googleapis.com/userinfo/email?al=json').parsed
-  erb :'/sessions/success'
+#   # parsed is a handy method on an OAuth2::Response object that will
+#   # intelligently try and parse the response.body
+#   @email = access_token.get('https://www.googleapis.com/userinfo/email?al=json').parsed
+#   erb :'/sessions/success'
+# end
+
+get '/redirect' do
 end
 
 get '/sessions/new' do
@@ -37,7 +40,7 @@ post '/sessions' do
     if !logged_in?
       if @user && @user.authenticate(params[:user][:password], params[:user][:email])
         session[:user_id] = @user.id
-        erb :'/users/show'
+        redirect "/users/#{@user.id}"
       else
         @errors = ["Password or email is incorrect"]
         erb :'/sessions/new'
@@ -47,4 +50,9 @@ post '/sessions' do
       erb :index
     end
   end
+end
+
+delete '/sessions' do
+  session.delete(:user_id)
+  redirect '/'
 end

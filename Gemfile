@@ -10,6 +10,7 @@ gem 'dotenv'
 gem 'json'
 gem 'oauth2'
 gem 'bcrypt'
+gem 'google_calendar'
 
 gem 'activesupport', '~>5.1.2'
 gem 'activerecord', '~>5.1.2'
