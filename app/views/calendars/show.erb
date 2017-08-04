@@ -3,6 +3,23 @@
   <label>Refresh Token: </label><%= refresh_token %>
 <% end %>
 
-<% @cal.events.each do |event| %>
-  <p><%= event.title %></p>
+<h4>Calendar Events</h4>
+<% if @cal.events %>
+  <ul>
+    <% @cal.events.each do |event| %>
+    <li><%= event.title %></li>
+    <% end %>
+  </ul>
 <% end %>
+
+<h4>Add Event</h4>
+<form action="/users/<%= @user.id %>/calendar/events" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label>Event Title: </label>
+  <input type="text" name="event[title]" placeholder="Title" autofocus><br>
+  <label>Start Time: </label>
+  <input type="text" name="event[start_time]" placeholder="Start Time"><br>
+  <label>End Time: </label>
+  <input type="text" name="event[end_time]" placeholder="End Time"><br>
+  <input type="submit" value="Create Event">
+</form>
