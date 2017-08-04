@@ -1,9 +1,9 @@
 <h2>Login</h2>
 
-<form>
+<form action="/sessions" method="post">
   <label>Email: </label>
-  <input type="email" name="user[:email]" placeholder="example@email.com" autofocus><br>
+  <input type="email" name="user[email]" placeholder="example@email.com" autofocus><br>
   <label>Password: </label>
-  <input type="password" name="user[:password]" placeholder="Password"><br>
+  <input type="password" name="user[password]" placeholder="Password"><br>
   <input type="submit" value="Login">
 </form>
