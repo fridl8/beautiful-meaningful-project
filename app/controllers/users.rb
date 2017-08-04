@@ -22,6 +22,7 @@ post '/users' do
 end
 
 get '/users/:id' do
+  p ENV['GOOGLE_CLIENT_ID']
   @user = User.find_by(id: params[:id])
   @cal = Google::Calendar.new(:client_id     => ENV['GOOGLE_CLIENT_ID'],
                            :client_secret => ENV['GOOGLE_CLIENT_SECRET'],
