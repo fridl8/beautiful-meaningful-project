@@ -4,24 +4,24 @@ source 'https://rubygems.org'
 gem 'pg'
 
 # Sinatra driver
-gem 'sinatra', '~> 1.0'
-gem 'sinatra-contrib'
+gem 'sinatra', '~> 2.2', '>= 2.2.3'
+gem 'sinatra-contrib', '>= 2.2.3'
 gem 'dotenv'
-gem 'json'
-gem 'oauth2'
+gem 'json', '>= 2.3.0'
+gem 'oauth2', '>= 1.4.11'
 gem 'bcrypt'
 gem 'google_calendar'
 
-gem 'activesupport', '~>5.1.2'
-gem 'activerecord', '~>5.1.2'
+gem 'activesupport', '~> 6.1.7', '>= 6.1.7.1'
+gem 'activerecord', '~> 6.1.7', '>= 6.1.7.1'
 
-gem 'rake'
+gem 'rake', '>= 12.3.3'
 
-gem 'shotgun', '~>0.9.1'
+gem 'shotgun', '~> 0.9.2'
 
 group :test do
   gem 'shoulda-matchers'
-  gem 'rack-test'
+  gem 'rack-test', '>= 2.0.0'
   gem 'rspec', '~>3.0'
   gem 'capybara'
 end
