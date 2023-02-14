@@ -12,8 +12,8 @@ gem 'oauth2', '>= 1.4.11'
 gem 'bcrypt'
 gem 'google_calendar'
 
-gem 'activesupport', '~> 6.1.7', '>= 6.1.7.1'
-gem 'activerecord', '~> 6.1.7', '>= 6.1.7.1'
+gem 'activesupport', '~> 5.2.4', '>= 5.2.4.3'
+gem 'activerecord', '~> 5.2.4', '>= 5.2.4.3'
 
 gem 'rake', '>= 12.3.3'
 
